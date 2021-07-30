@@ -1,6 +1,6 @@
 export const environment = {
   production: true,
-  apiStore: "http://localhost:3000",
+  apiStore: "https://afternoon-peak-28316.herokuapp.com",
   baseUrl: "https://rickandmortyapi.com/api",
   firebaseConfig: {
     apiKey: "AIzaSyDJyxVxM0_rEZy0ZZyKM7G1SUKIlTmiHkk",
