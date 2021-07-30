@@ -1,0 +1,15 @@
+<h2 mat-dialog-title>Detalles del Producto</h2>
+
+<div mat-dialog-content>
+
+  <div class="grid md:grid-cols-5 gap-3">
+    <img class="md:col-span-3" [src]="product.image" alt="">
+
+    <div class="md:col-span-2">
+      <p><strong>Price: </strong>{{product.price | currency:'S/'}}</p>
+      <p><strong>Stock: </strong>{{product.stock}}</p>
+    </div>
+
+  </div>
+
+</div>

@@ -1,0 +1,26 @@
+<section id="products" class="container-sm grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+
+  <article class="shadow p-4 bg-gray-100 rounded " *ngFor="let item of products">
+    <div class="header flex items-center justify-between">
+      <p class="">{{ item.name | titlecase }}</p>
+      <p class="bg-green-400 rounded-lg py-1 px-2"><strong>Price: </strong>{{item.price| currency:'S/'}}</p>
+    </div>
+
+    <figure>
+      <img [src]="item.image" alt="image">
+    </figure>
+
+    <div class="mt-2">
+      <p>{{item.description}}</p>
+      <p><strong>Stock: </strong>{{item.stock}}</p>
+    </div>
+
+    <div class="mt-3 flex gap-4 justify-end">
+      <button class="bg-yellow-600 py-1 px-2 rounded text-white" (click)="addCarrito(item)">Agregar</button>
+      <button class="bg-gray-600 py-1 px-2 rounded text-white">Detalles</button>
+    </div>
+
+
+  </article>
+
+</section>

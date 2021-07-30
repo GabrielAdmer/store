@@ -1,1 +1,24 @@
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
 /* You can add global styles to this file, and also import other style files */
+
+@import "/src/scss/material";
+@import "/src/scss/variables";
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.container-sm {
+  @apply max-w-7xl mx-auto px-2 py-2 sm:px-6 lg:px-8;
+}
+
+.active {
+  background-color: #e7b221;
+}

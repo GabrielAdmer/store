@@ -1,0 +1,52 @@
+// //colores
+// @import "@angular/material/theming";
+// // Be sure that you only ever include this mixin once!
+// @include mat-core();
+// $candy-app-primary: mat-palette($mat-indigo, 500);
+// $candy-app-accent: mat-palette($mat-light-green, 700);
+// $candy-app-warn: mat-palette($mat-red);
+
+// $candy-app-secondary: mat-palette($mat-light-green, 700);
+
+// $candy-app-theme: mat-light-theme($candy-app-primary, $candy-app-accent, $candy-app-warn);
+
+// @include angular-material-theme($candy-app-theme);
+
+// .light-theme {
+//   @include angular-material-theme($candy-app-theme);
+//   background-color: #fff;
+//   color: #222;
+// }
+
+// .dark-theme {
+//   @include angular-material-theme($candy-app-dark-theme);
+//   background-color: #263238;
+//   color: rgb(168, 54, 54);
+// }
+
+@import "/src/scss/variables";
+
+.mat-form-field-flex > .mat-form-field-infix {
+  padding: 0.6em 0px !important;
+}
+.mat-form-field-label-wrapper {
+  top: -1.3em;
+}
+
+.mat-form-field-appearance-outline.mat-form-field-can-float.mat-form-field-should-float .mat-form-field-label {
+  transform: translateY(-1.1em) scale(0.75);
+  width: 133.33333%;
+  color: $DarkBlue;
+}
+
+.mat-form-field-appearance-outline .mat-form-field-outline-thick {
+  color: #333;
+}
+
+mat-form-field.mat-form-field {
+  color: #333;
+}
+
+.mat-form-field-appearance-outline .mat-form-field-outline {
+  color: $DarkBlue;
+}

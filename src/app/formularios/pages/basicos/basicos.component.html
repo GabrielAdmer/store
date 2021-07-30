@@ -1,0 +1,92 @@
+<div class="container-sm">
+
+  <form [formGroup]="myForm" class="border p-4">
+
+    <!-- *************************************************************** -->
+    <!--* Last Names *-->
+    <!-- *************************************************************** -->
+    <div formGroupName="fullName" class="flex gap-4">
+
+      <mat-form-field class="w-full" appearance="outline">
+        <mat-label>Outline form field</mat-label>
+        <input formControlName="name"
+               matInput placeholder="Placeholder">
+        <mat-icon *ngIf="name?.valid" matSuffix>sentiment_very_satisfied</mat-icon>
+        <mat-icon *ngIf="name?.invalid" matSuffix>sentiment_dissatisfied</mat-icon>
+        <mat-error *ngIf="name?.hasError('required')">Required</mat-error>
+        <mat-error *ngIf="name?.hasError('minlength')">Minimo 10 caracteres</mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="w-full" appearance="outline">
+        <mat-label>Outline form field</mat-label>
+        <input formControlName="lastName"
+               matInput placeholder="Placeholder">
+        <mat-icon *ngIf="lastName?.valid" matSuffix>sentiment_very_satisfied</mat-icon>
+        <mat-icon *ngIf="lastName?.invalid" matSuffix>sentiment_dissatisfied</mat-icon>
+        <mat-error *ngIf="lastName?.hasError('required')">Required</mat-error>
+      </mat-form-field>
+
+    </div>
+
+    <!-- *************************************************************** -->
+    <!--* fechas y select  *-->
+    <!-- *************************************************************** -->
+    <div class="md:flex gap-4">
+      <mat-form-field class="example-form-field w-full" appearance="outline">
+        <mat-label>First campaign</mat-label>
+        <mat-date-range-input
+                              [formGroup]="myForm"
+                              [rangePicker]="campaignOnePicker"
+                              [comparisonStart]="startDate?.value"
+                              [comparisonEnd]="endDate?.value">
+          <input matStartDate placeholder="Start date" formControlName="startDate">
+          <input matEndDate placeholder="End date" formControlName="endDate">
+        </mat-date-range-input>
+        <mat-datepicker-toggle matSuffix [for]="campaignOnePicker"></mat-datepicker-toggle>
+        <mat-date-range-picker #campaignOnePicker></mat-date-range-picker>
+        <mat-error *ngIf="startDate?.hasError('required')">Required</mat-error>
+        <mat-error *ngIf="endDate?.hasError('required')">Required end Date</mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="w-full" appearance="outline">
+        <mat-label>Choose an option</mat-label>
+        <mat-select formControlName="mySelect">
+          <mat-option *ngFor="let item of selectData" [value]="item.id">{{ item.name }}</mat-option>
+        </mat-select>
+        <mat-error *ngIf="mySelect?.hasError('required')">Required</mat-error>
+      </mat-form-field>
+
+    </div>
+
+    <!-- *************************************************************** -->
+    <!--* select multiple *-->
+    <!-- *************************************************************** -->
+    <div class="flex gap-4 ">
+      <mat-form-field appearance="outline" class="w-full">
+        <mat-label>Selct Multiple</mat-label>
+        <mat-select formControlName="myCheckPreferences" multiple>
+          <mat-option *ngFor="let item of selectData" [value]="item.name">{{item.name}}</mat-option>
+        </mat-select>
+        <mat-error *ngIf="myCheckPreferences?.hasError('required')">Required</mat-error>
+      </mat-form-field>
+
+      <mat-radio-group formControlName="myRadio" class="w-full mt-3" aria-label="Select an option">
+        <mat-radio-button *ngFor="let item of radioData" [checked]="item.name === 'futbol'" [value]="item.name">
+          {{item.name}}
+        </mat-radio-button>
+      </mat-radio-group>
+
+
+    </div>
+
+    <button mat-raised-button (click)="printForm()" class="w-full bg-yellow-600">Print Form</button>
+
+  </form>
+
+  <div class="border p-4 w-1/2 m-auto mt-4 rounded-md bg-yellow-500 text-gray-800">
+    <pre>{{ myForm.value | json }}</pre>
+  </div>
+
+
+
+</div>

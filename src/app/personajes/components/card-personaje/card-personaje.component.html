@@ -1,0 +1,22 @@
+<div class="place-self-center border rounded-md overflow-hidden shadow">
+  <div>
+    <img [src]="personaje.image" alt="">
+  </div>
+
+  <div class="p-4 flex justify-between items-center">
+    <p>{{ personaje.name }}</p>
+    <p [ngClass]="{ 'bg-yellow-500': personaje.species === 'Human', 
+                        'bg-green-500': personaje.species === 'Alien'}"
+       class="px-2 rounded-lg text-white">
+      {{ personaje.species }}
+    </p>
+  </div>
+
+  <div class="p-1 w-full">
+    <button mat-stroked-button (click)="openDialog()"
+            class="hover:bg-yellow-400 w-full hover:text-white border border-l-2 border-yellow-400">
+      Detail
+    </button>
+  </div>
+
+</div>

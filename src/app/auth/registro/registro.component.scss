@@ -1,0 +1,17 @@
+@import "/src/scss/variables";
+.mat-form-field-flex > .mat-form-field-infix {
+  padding: 0.6em 0px !important;
+}
+
+:host {
+  height: calc(100vh - 64px);
+  width: 100%;
+  background-color: $DarkBlue;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+form {
+  width: 400px;
+}

@@ -1,0 +1,75 @@
+// $primary: red;
+
+// div {
+//   color: darken($primary: $primary, $amount: 20);
+// }
+
+// button1 {
+//   border: none;
+//   background-color: rebeccapurple;
+// }
+
+// button2 {
+//   @extend button1;
+//   background-color: red;
+// }
+
+// @function get-opacity($color, $nivel) {
+//   @return rgba($color, $nivel);
+// }
+
+// $sizes: 40px, 50px, 80px;
+
+// @each $size in $sizes {
+//   .icon-#{$size} {
+//     font-size: $size;
+//     height: $size;
+//     width: $size;
+//   }
+// }
+
+$DarkBlue: hsl(209, 23%, 22%);
+$VeryDarkBlueDark: hsl(207, 26%, 17%);
+$VeryDarkBlueLight: hsl(200, 15%, 8%);
+$DarkGray: hsl(0, 0%, 52%);
+$VeryLight: hsl(0, 0%, 98%);
+$White: hsl(0, 0%, 100%);
+
+//*! -------------------------------------------------------------------------- */
+//*!                                   $Colors                                  */
+//*! -------------------------------------------------------------------------- */
+
+$color-primary: #264653;
+$color-secundary: #118ab2;
+
+$color-black: rgb(0, 0, 0);
+$color-dark-grey: #4d4d4d;
+$color-gray: #737373;
+$color-ligh-gray: #bfbfbf;
+$color-white: white;
+
+// ? texturas
+
+$color-alert: rgb(219, 216, 121);
+$color-error: rgb(218, 79, 73);
+$color-info: rgb(66, 104, 221);
+$color-success: rgb(91, 183, 91);
+
+// ? shadow
+
+$shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+
+//*! -------------------------------------------------------------------------- */
+//*!                                   $tipografia                                  */
+//*! -------------------------------------------------------------------------- */
+
+//? Tipografía
+$base-font: "Josefin Sans", sans-serif;
+$font-primary: "Asap", sans-serif;
+$font-secundary: "Alegreya Sans", serif;
+
+$padding: 5px;
+$max-width: 300px;
+
+//!Constantes
+$border-radius: 4px;

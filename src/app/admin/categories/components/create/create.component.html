@@ -1,0 +1,22 @@
+<h1 mat-dialog-title>Crando Categoria</h1>
+
+<div mat-dialog-content>
+
+  <p>
+    <mat-form-field class="w-full" appearance="outline">
+      <mat-label>Nombre de Categoria</mat-label>
+      <input [formControl]="name" autocomplete="off"
+             matInput placeholder="Placeholder">
+      <mat-icon *ngIf="name?.valid" matSuffix>sentiment_very_satisfied</mat-icon>
+      <mat-icon *ngIf="name?.invalid" matSuffix>sentiment_dissatisfied</mat-icon>
+      <mat-error *ngIf="name?.hasError('required')">Required</mat-error>
+      <mat-error *ngIf="name?.hasError('minlength')">Minimo 10 caracteres</mat-error>
+    </mat-form-field>
+  </p>
+
+</div>
+
+<div mat-dialog-actions>
+  <button mat-button mat-dialog-close>No Thanks</button>
+  <button (click)="createCategory()" mat-button cdkFocusInitial>Create</button>
+</div>

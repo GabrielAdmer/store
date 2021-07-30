@@ -1,0 +1,28 @@
+<form [formGroup]=" myLogin" autocomplete="off"
+      class="w-1/2 border p-4 rounded-sm m-auto mt-12 shadow-md">
+
+  <mat-form-field class="w-full" appearance="outline">
+    <mat-label>Email</mat-label>
+    <input formControlName="email"
+           matInput placeholder="Placeholder">
+
+    <mat-error *ngIf="email?.hasError('required') && email?.touched">Required</mat-error>
+    <mat-error *ngIf="email?.hasError('email') && email?.touched">Email Invalid</mat-error>
+
+  </mat-form-field>
+
+  <mat-form-field class="w-full" appearance="outline">
+    <mat-label>Password</mat-label>
+    <input formControlName="password"
+           matInput placeholder="Placeholder">
+
+    <mat-error *ngIf="password?.hasError('required') && password?.touched">Required</mat-error>
+    <mat-error *ngIf="password?.hasError('minlength') && password?.touched">Min 5 characteres</mat-error>
+
+  </mat-form-field>
+
+  <button (click)="login()" class="bg-yellow-400 w-full" mat-raised-button>
+    Login
+  </button>
+
+</form>

@@ -1,0 +1,36 @@
+<div class="bg-yellow-400 h-16 ">
+
+  <div class="container-sm flex h-16 items-center justify-between">
+    <div class="flex">
+      <img class="mr-2" src="favicon.ico" alt="">
+      <button mat-button [matMenuTriggerFor]="menu">Formularios</button>
+      <mat-menu class="bg-yellow-400 " #menu="matMenu">
+        <button routerLink="/formularios/basico" mat-menu-item class="text-white">Basico</button>
+        <button routerLink="/formularios/avanzado" mat-menu-item class="text-white">Avanzado</button>
+      </mat-menu>
+
+    </div>
+    <div class="flex">
+      <button routerLinkActive="active" mat-button routerLink="/products" class="text-gray-700 mr-2">Productos</button>
+      <button mat-icon-button [matBadge]="cartLength" routerLink="/cart">
+        <mat-icon class="text-gray-700">shopping_cart</mat-icon>
+      </button>
+      <div [class.hidden]="lenght === 0">
+        <button routerLinkActive="active" routerLink="/personajes" mat-button class="text-gray-700">Personajes</button>
+        <button routerLinkActive="active" routerLink="/admin/categories/lista" mat-button
+                class="text-gray-700">Admin</button>
+
+      </div>
+      <div *ngIf="lenght > 0;else button">
+        <button routerLinkActive="active" (click)=" logout()" mat-button class="text-gray-700 ">Logout</button>
+      </div>
+      <ng-template #button>
+        <button routerLinkActive="active" routerLink="/auth/login" mat-button class="text-gray-700 ">Login</button>
+        <button routerLink="/auth/registro" mat-button class="text-white">Registro</button>
+      </ng-template>
+    </div>
+  </div>
+
+</div>
+
+<router-outlet></router-outlet>

@@ -1,0 +1,32 @@
+<div class="container-sm">
+
+  <div class="grid grid-cols-4 p-2 bg-yellow-400 items-center rounded-md mb-4">
+    <div class="col-span-4 md:col-span-1">
+      <app-options (onCambiarPagina)="cambiarPagina($event)" [page]="page">
+      </app-options>
+      <input type="number" [formControl]="cambiarPage"
+             (keyup.enter)="selecionarPage()"
+             class="border rounded-md p-1 w-16 ml-2">
+    </div>
+    <div class="col-span-4 md:col-span-3">
+      <app-search [serchName]="searchName" (onPalabra)="serachNameApi($event)"></app-search>
+    </div>
+  </div>
+
+  <div class="w-full bg-red-400 p-3 rounded-md text-center mb-3" *ngIf="this.msgError.length > 0">
+    {{ msgError }}
+  </div>
+
+  <div *ngIf="(cargando$ |async); else personajes">
+    <p>Cargando...</p>
+  </div>
+
+
+  <ng-template #personajes>
+    <div class=" grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2">
+      <app-card-personaje *ngFor="let personaje of personajes$ | async" [personaje]="personaje">
+      </app-card-personaje>
+    </div>
+  </ng-template>
+
+</div>

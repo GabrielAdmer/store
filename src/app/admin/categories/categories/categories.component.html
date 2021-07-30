@@ -1,0 +1,21 @@
+<div class="w-full bg-blue-200 p-4 flex justify-between items-center">
+  <p class="m-0">Categories</p>
+  <button (click)="openDialogCreate()" mat-raised-button>
+    Nuevo
+    <mat-icon>add</mat-icon>
+  </button>
+</div>
+
+<div class="mt-4 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5">
+  <div *ngFor="let item of categories" class="border bg-gray-600 p-4 rounded text-white grid grid-cols-2 items-center">
+    {{item.name}}
+    <div>
+      <button (click)="openDialogRemove(item)" mat-icon-button>
+        <mat-icon matSuffix>delete</mat-icon>
+      </button>
+      <button (click)="openDialogUpdate(item)" mat-icon-button>
+        <mat-icon matSuffix>edit</mat-icon>
+      </button>
+    </div>
+  </div>
+</div>

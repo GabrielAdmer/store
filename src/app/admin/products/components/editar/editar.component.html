@@ -1,0 +1,96 @@
+<h1 mat-dialog-title>Editar Producto</h1>
+
+<div mat-dialog-content>
+
+  <form [formGroup]="myForm">
+
+
+    <!-- *************************************************************** -->
+    <!--* name is produt *-->
+    <!-- *************************************************************** -->
+    <mat-form-field class="w-full" appearance="outline">
+      <mat-label>Nombre de Categoria</mat-label>
+      <input formControlName="name" autocomplete="off"
+             matInput placeholder="Placeholder">
+      <mat-icon *ngIf="name?.valid" matSuffix>sentiment_very_satisfied</mat-icon>
+      <mat-icon *ngIf="name?.invalid" matSuffix>sentiment_dissatisfied</mat-icon>
+      <mat-error *ngIf="name?.hasError('required')">Required</mat-error>
+      <mat-error *ngIf="name?.hasError('minlength')">Minimo 10 caracteres</mat-error>
+    </mat-form-field>
+
+    <!-- *************************************************************** -->
+    <!--* price is produt *-->
+    <!-- *************************************************************** -->
+    <mat-form-field class="w-full" appearance="outline">
+      <mat-label>Precio</mat-label>
+      <input formControlName="price" autocomplete="off" type="number"
+             matInput placeholder="Placeholder">
+      <mat-icon *ngIf="price?.valid" matSuffix>sentiment_very_satisfied</mat-icon>
+      <mat-icon *ngIf="price?.invalid" matSuffix>sentiment_dissatisfied</mat-icon>
+      <mat-error *ngIf="price?.hasError('required')">Required</mat-error>
+      <mat-error *ngIf="price?.hasError('min')">Minimo 2</mat-error>
+    </mat-form-field>
+
+    <!-- *************************************************************** -->
+    <!--* price is produt *-->
+    <!-- *************************************************************** -->
+    <mat-form-field class="w-full" appearance="outline">
+      <mat-label>Stock</mat-label>
+      <input formControlName="stock" autocomplete="off" type="number"
+             matInput placeholder="Placeholder">
+      <mat-icon *ngIf="stock?.valid" matSuffix>sentiment_very_satisfied</mat-icon>
+      <mat-icon *ngIf="stock?.invalid" matSuffix>sentiment_dissatisfied</mat-icon>
+      <mat-error *ngIf="stock?.hasError('required')">Required</mat-error>
+      <mat-error *ngIf="stock?.hasError('min')">Minimo 2</mat-error>
+    </mat-form-field>
+
+    <!-- *************************************************************** -->
+    <!--* categories is produt *-->
+    <!-- *************************************************************** -->
+    <mat-form-field class="w-full" appearance="outline">
+      <mat-label>Categorias</mat-label>
+      <mat-select formControlName="categoriesIds" multiple>
+        <mat-option *ngFor="let item of categories" [value]="item.id">{{item.name}}</mat-option>
+      </mat-select>
+      <mat-icon *ngIf="categoriesIds?.valid" matSuffix>sentiment_very_satisfied</mat-icon>
+      <mat-icon *ngIf="categoriesIds?.invalid" matSuffix>sentiment_dissatisfied</mat-icon>
+      <mat-error *ngIf="categoriesIds?.hasError('required')">Required</mat-error>
+      <mat-error *ngIf="categoriesIds?.hasError('min')">Minimo 2</mat-error>
+    </mat-form-field>
+
+    <!-- *************************************************************** -->
+    <!--* price is produt *-->
+    <!-- *************************************************************** -->
+    <mat-form-field class="w-full" appearance="outline">
+      <mat-label>Stock</mat-label>
+      <textarea matInput formControlName="description" placeholder="Ex. It makes me feel..."></textarea>
+      <mat-icon *ngIf="description?.valid" matSuffix>sentiment_very_satisfied</mat-icon>
+      <mat-icon *ngIf="description?.invalid" matSuffix>sentiment_dissatisfied</mat-icon>
+      <mat-error *ngIf="description?.hasError('required')">Required</mat-error>
+      <mat-error *ngIf="description?.hasError('min')">Minimo 2</mat-error>
+    </mat-form-field>
+
+    <div class="w-72 m-auto text-center">
+      <label
+             class="flex justify-center items-center px-4 py-2 bg-white rounded-md shadow-md tracking-wide uppercase border border-blue cursor-pointer hover:bg-indigo-400 hover:text-white text-blue-600 ease-linear transition-all duration-300">
+        <input class="hidden" (change)="uploadFile($event)"
+               #asInputFile type="file" placeholder="archivo">
+        <mat-icon>cloud_upload </mat-icon>
+        <span class="ml-2"> {{ nameFile ? nameFile : 'Subir Imagen' }} </span>
+      </label>
+      <mat-progress-bar mode="determinate" [value]="uploadPercent | async"></mat-progress-bar>
+      <span class="text-red-400  font-bold ease-linear transition-all duration-1000"
+            *ngIf="msgError.trim().length > 0">{{msgError}}</span>
+    </div>
+
+    <img [src]="image?.value" alt="image">
+
+
+  </form>
+
+</div>
+
+<div mat-dialog-actions>
+  <button mat-button [mat-dialog-close]="false">Cancel</button>
+  <button mat-button (click)="updateProducto()" cdkFocusInitial>Editar producto</button>
+</div>

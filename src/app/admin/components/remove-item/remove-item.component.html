@@ -1,0 +1,12 @@
+<h1 mat-dialog-title>Eliminar Categoria</h1>
+
+<div mat-dialog-content>
+  <p>
+    Estas seguro que quieres eliminar {{item.name}}
+  </p>
+</div>
+
+<div mat-dialog-actions>
+  <button mat-button [mat-dialog-close]="false" class="bg-red-600 text-white">Cancelar</button>
+  <button (click)="removeItem()" mat-button cdkFocusInitial>Eliminar</button>
+</div>

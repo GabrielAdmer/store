@@ -1,0 +1,76 @@
+<div class="container-sm">
+
+
+  <form autocomplete="off" class="p-4 border shadow-md m-auto bg-white rounded" [formGroup]="myRegistro">
+
+    <h1 class="text-center">Registro</h1>
+
+    <!-- *************************************************************** -->
+    <!--* name *-->
+    <!-- *************************************************************** -->
+    <mat-form-field class="w-full" appearance="outline">
+      <mat-label>Name</mat-label>
+      <input formControlName="name"
+             matInput placeholder="Placeholder">
+      <mat-icon *ngIf="name?.valid" matSuffix>sentiment_very_satisfied</mat-icon>
+      <mat-icon *ngIf="name?.invalid" matSuffix>sentiment_dissatisfied</mat-icon>
+      <mat-error *ngIf="name?.hasError('required')">Required</mat-error>
+      <mat-error *ngIf="name?.hasError('minlength')">Minimo 3 caracteres</mat-error>
+    </mat-form-field>
+
+    <!-- *************************************************************** -->
+    <!--* email *-->
+    <!-- *************************************************************** -->
+    <mat-form-field class="w-full" appearance="outline">
+      <mat-label>Email</mat-label>
+      <input formControlName="email"
+             matInput placeholder="Placeholder">
+      <mat-icon *ngIf="email?.valid" matSuffix>sentiment_very_satisfied</mat-icon>
+      <mat-icon *ngIf="email?.invalid" matSuffix>sentiment_dissatisfied</mat-icon>
+      <mat-error *ngIf="email?.hasError('required')">Required</mat-error>
+      <mat-error *ngIf="email?.hasError('email')">No es un email</mat-error>
+    </mat-form-field>
+
+    <!-- *************************************************************** -->
+    <!--* password *-->
+    <!-- *************************************************************** -->
+    <mat-form-field class="w-full" appearance="outline">
+      <mat-label>Password</mat-label>
+      <input formControlName="password"
+             matInput placeholder="Placeholder">
+      <mat-icon *ngIf="password?.valid" matSuffix>sentiment_very_satisfied</mat-icon>
+      <mat-icon *ngIf="password?.invalid" matSuffix>sentiment_dissatisfied</mat-icon>
+      <mat-error *ngIf="password?.hasError('required')">Required</mat-error>
+      <mat-error *ngIf="password?.hasError('minlength')">Minimo 10 caracteres</mat-error>
+      <mat-error *ngIf="myRegistro?.hasError('invalid_password')">Debe tener un caracter numerico</mat-error>
+    </mat-form-field>
+
+    <!-- *************************************************************** -->
+    <!--* password *-->
+    <!-- *************************************************************** -->
+    <mat-form-field class="w-full" appearance="outline">
+      <mat-label>confiPassword</mat-label>
+      <input [errorStateMatcher]="errorStateMathcer"
+             formControlName="confiPassword"
+             matInput placeholder="Placeholder">
+      <mat-icon *ngIf="confiPassword?.valid" matSuffix>sentiment_very_satisfied</mat-icon>
+      <mat-icon *ngIf="confiPassword?.invalid" matSuffix>sentiment_dissatisfied</mat-icon>
+      <mat-error *ngIf="confiPassword?.hasError('required')">Required</mat-error>
+      <mat-error *ngIf="confiPassword?.hasError('minlength')">Minimo 10 caracteres</mat-error>
+      <mat-error *ngIf="myRegistro?.errors">Los password no coinciden</mat-error>
+    </mat-form-field>
+
+    {{myRegistro.errors | json}}
+    <button mat-raised-button
+            color="primary"
+            class="w-full" (click)="registroForm()">
+      Registro
+    </button>
+
+  </form>
+
+</div>
+
+<div *ngIf="myRegistro.get('confiPassword')?.touched && myRegistro.errors">
+  <mat-error *ngIf="myRegistro?.hasError('no_matchpassword')">asdf</mat-error>
+</div>

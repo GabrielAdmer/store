@@ -1,0 +1,86 @@
+<!-- <button mat-raised-button (click)="isEditable = !isEditable">
+  {{!isEditable ? 'Enable edit mode' : 'Disable edit mode'}}
+</button> -->
+
+<mat-stepper linear #stepper>
+  <mat-step>
+    <ng-template matStepLabel>Fill out your address</ng-template>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Nombre</th>
+          <th>Precio</th>
+          <th>Imagen</th>
+          <th>Cantidad</th>
+          <th>Remove Carrito</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of cart">
+          <td data-column="Nombre">{{ item.name }}</td>
+          <td data-column="Precio">{{ item.price | currency:'S/' }}</td>
+          <td class="table-options" data-column="Imagen">
+            <img [src]="item.image" alt="img">
+          </td>
+          <td>
+            {{item.cuantity}}
+          </td>
+          <td>
+            <button (click)="deleteItemCart(item.id!)">
+              <mat-icon class="text-red-600">delete</mat-icon>
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div>
+      <button mat-button matStepperNext>Next</button>
+    </div>
+
+  </mat-step>
+  <mat-step>
+    <ng-template matStepLabel>kasjdf</ng-template>
+
+    <form [formGroup]="myForm">
+      <mat-form-field appearance="outline">
+        <mat-label>Nombre</mat-label>
+        <input formControlName="name" type="text" matInput>
+      </mat-form-field>
+
+      <button mat-raised-button color="primary" (click)="addAdreessField()">Add Address</button>
+
+      <div formArrayName="address" *ngFor="let item of address.controls; let i = index">
+        {{i}}
+        <div [formGroupName]="i">
+          <mat-form-field appearance="outline">
+            <mat-label>ZipCode</mat-label>
+            <input type="text" matInput formControlName="zip">
+          </mat-form-field>
+
+          <mat-form-field appearance="outline">
+            <mat-label>Text</mat-label>
+            <input type="text" matInput formControlName="text">
+          </mat-form-field>
+        </div>
+      </div>
+
+      <button (click)="printForm()">Print</button>
+
+    </form>
+
+    <div>
+      <button mat-button matStepperNext>Next</button>
+    </div>
+
+  </mat-step>
+  <mat-step>
+    <ng-template matStepLabel>Done</ng-template>
+    <p>You are now done.</p>
+    <div>
+      <button mat-button matStepperPrevious>Back</button>
+      <button mat-button (click)="stepper.reset()">Reset</button>
+    </div>
+  </mat-step>
+</mat-stepper>

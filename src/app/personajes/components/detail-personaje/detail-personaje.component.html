@@ -1,0 +1,25 @@
+<div mat-dialog-content>
+
+  <div class="grid grid-cols-6 gap-2">
+    <div class="col-span-6 md:col-span-3 justify-self-center">
+      <img [src]="data.image" alt="">
+    </div>
+
+    <div class="col-span-6 md:col-span-3 text-center self-center">
+      <p>{{ data.name }}</p>
+
+      <div *ngFor="let epi of data.episode">
+        <p>{{ epi }}</p>
+      </div>
+
+      <p>{{ data.origin.name }}</p>
+      <p>{{ data.status }}</p>
+    </div>
+
+  </div>
+
+
+</div>
+<div mat-dialog-actions>
+  <button mat-button mat-dialog-close>Ok</button>
+</div>

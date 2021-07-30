@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "platzy-store-12eb7": {
+      "hosting": {
+        "angular-tailwind": [
+          "platzy-store-12eb7"
+        ]
+      }
+    }
+  }
+}

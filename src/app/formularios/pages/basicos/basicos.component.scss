@@ -1,0 +1,53 @@
+.is-valid {
+  border: 1px solid blue;
+  border-width: 2px;
+  transition: all 0.5 ease-in-out;
+}
+
+.invalid {
+  border: 1px solid red;
+  border-width: 2px;
+  transition: all 0.5 ease-in-out;
+}
+
+span {
+  color: red;
+}
+
+.p {
+  margin: 0 0 18px 0;
+}
+
+.message {
+  opacity: 0;
+  transition: all 0.5s ease-in-out;
+
+  &.active {
+    opacity: 1;
+    transition: all 0.5s ease-in-out;
+  }
+}
+
+// button {
+//   padding: 10px;
+//   background-color: yellow;
+//   place-self: center;
+//   border-radius: 5px;
+//   transition: all 0.5s ease;
+
+//   &:hover {
+//     background-color: darken($color: rgb(238, 238, 22), $amount: 1);
+
+//     transform: scale(0.9);
+//     transition: all 0.5s ease;
+//   }
+// }
+
+.example-additional-selection {
+  opacity: 0.75;
+  font-size: 0.75em;
+}
+
+.mat-radio-button ~ .mat-radio-button {
+  margin-left: 16px;
+}
